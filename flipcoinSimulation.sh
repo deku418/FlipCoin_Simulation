@@ -23,6 +23,21 @@ do
 	else
 		((tails++))
 	fi
+		if [[ $heads -eq 21 || $tails -eq 21 ]]
+		then
+			break
+		fi
 done
-
 echo "Head Win : $heads times"  "Tail Win : $tails times"
+
+if [ $heads -gt $tails ]
+then
+	num=$((heads-tails))
+	echo "Head wins Tail by $num times"
+elif [ $heads -lt $tails ]
+then
+	num=$((tails-heads))
+	echo "Tail wins Head by $num times"
+else
+	echo "Its a Tie"
+fi
